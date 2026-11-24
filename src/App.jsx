@@ -1,15 +1,16 @@
 import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css'
-import data from './data'
+import data from './db/data'
 import { useState } from 'react'
 import Home from './components/Home';
 import Detail from './components/Detail';
 import About from './components/About';
+import Footer from './components/Footer';
 
 
 function App() {
 
-  const [shoes] = useState(data);
+  const [shoes, setShoes] = useState(data);
   const navigate = useNavigate();
 
   return (
@@ -37,7 +38,7 @@ function App() {
       </nav>
 
       <Routes>
-        <Route path='/' element={<Home shoes={shoes} />}></Route>
+        <Route path='/' element={<Home shoes={shoes}  setShoes={setShoes} />}></Route>
         <Route path='/detail/:id' element={<Detail shoes={shoes} />} />
         <Route path='/cart' element={<div>Cart</div>} />      
         <Route path='/about' element={<About />}>
@@ -46,6 +47,8 @@ function App() {
         </Route>
         <Route path='*' element={<div>페이지를 찾을수 없습니다.</div>} />
       </Routes>
+
+      <Footer />
 
     </div>
   )
