@@ -71,7 +71,7 @@ const Detail = (props) => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <div className="w-full">
-                    <img src={selproduct.imgUrl} alt="상품 이미지" className="w-full h-auto" />
+                    <img src={import.meta.env.BASE_URL + selproduct.imgUrl} alt="상품 이미지" className="w-full h-auto" />
                 </div>
 
                 <div className="pt-5 md:pt-0 space-y-4">
@@ -112,18 +112,6 @@ const Detail = (props) => {
                     버튼2
                 </li>
             </ul>
-
-            {/* <div tab={tab}>
-                {(()=>{
-                    if(tab === 0){
-                        return <div>내용0</div>
-                    }else if (tab === 1){
-                        return <div>내용1</div>
-                    }else if (tab === 2) {
-                        return <div>내용2</div>
-                    }
-                })()} 
-            </div> */}
 
             <TabContent tab={tab} />
 
